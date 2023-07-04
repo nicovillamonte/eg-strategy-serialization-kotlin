@@ -5,15 +5,10 @@ interface Persona {
     var apellido: String
     var email: String
 
-    fun setEamil(mail: String) {
-        this.email = mail
-    }
-
     fun presentarse(): String
 }
 
-
-class Estudiante(override var nombre: String, override var apellido: String) : Persona {
+class Estudiante(override var nombre: String = "", override var apellido: String = "") : Persona {
     override var email: String = ""
 
     override fun presentarse(): String {
@@ -21,16 +16,17 @@ class Estudiante(override var nombre: String, override var apellido: String) : P
     }
 }
 
-class Tutor(override var nombre: String, override var apellido: String) : Persona {
+class Tutor : Persona {
+    override var nombre: String = "Jorge"
+    override var apellido: String = "Luis"
     override var email: String = ""
 
     override fun presentarse(): String {
         return "Soy $nombre y soy tutor"
     }
-
 }
 
-class Profesor(override var nombre: String, override var apellido: String) : Persona {
+class Profesor(override var nombre: String = "", override var apellido: String = "") : Persona {
     override var email: String = ""
 
     override fun presentarse(): String {
